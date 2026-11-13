@@ -2,9 +2,7 @@
 
 **API data extraction · Data cleaning · Exploratory analysis · Power BI**
 
-An academic project exploring remote-job listings, reported locations, employers, and recurring skill tags. Data was obtained from the [Remote OK API](https://remoteok.com/api), rather than by scraping website HTML.
-
-> **Portfolio status:** Reorganized Python scripts are available. Original datasets are imported; the Power BI dashboard, report and presentation are still to be migrated from the [original coursework repository](https://github.com/nouhaBks/Website-Scarper). The revised scripts have not yet been executed against the imported data.
+An academic project exploring remote-job listings, reported locations, employers, and recurring skill tags. Data was obtained from the [Remote OK API](https://remoteok.com/api).
 
 ## Project workflow
 
@@ -36,7 +34,7 @@ python src/clean_jobs.py
 python src/visualize_jobs.py
 ```
 
-The extraction step accesses a **live API** and will produce a different snapshot over time. To reproduce the original academic analysis, use its archived dataset once uploaded instead of extracting fresh listings.
+The extraction step accesses a **live API** and will produce a different snapshot over time. To reproduce the academic analysis, use the included archived dataset instead of extracting fresh listings.
 
 ## Interpretation and limitations
 
@@ -46,6 +44,6 @@ The extraction step accesses a **live API** and will produce a different snapsho
 - Some original listing text shows encoding artifacts. Those values require source verification rather than speculative corrections.
 - This repository documents an **educational analytics workflow**, not a live labor-market monitoring service.
 
-## Original coursework
+## Project context
 
-The source project, including its original code, CSVs, Power BI dashboard and academic documents, remains available at [nouhaBks/Website-Scarper](https://github.com/nouhaBks/Website-Scarper). Portfolio scripts are a refactoring of that work, not a claim that new data collection or analysis has already been completed.
+This project was developed as academic coursework. The Python workflow has been reorganized for readability and reproducibility; the updated scripts have not yet been execution-tested.
