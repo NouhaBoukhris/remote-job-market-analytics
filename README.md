@@ -44,6 +44,18 @@ python src/visualize_jobs.py --input outputs/jobs_final_cleaned.csv --charts out
 
 The extraction step accesses a **live API** and will produce a different snapshot over time. The commands above write to the ignored `outputs/` directory, leaving the archived academic datasets untouched. To analyze the archived snapshot instead, run `python src/visualize_jobs.py --input data/jobs_final_cleaned.csv --charts outputs/archived_charts --skills-output outputs/archived_skills_frequency.csv`.
 
+## Validation and dashboard reconciliation
+
+The [automated pipeline validation](.github/workflows/validate-pipeline.yml) successfully ran the revised cleaning and visualization scripts on the archived raw CSV and verified that charts and a skills-frequency table were generated.
+
+| Metric | Archived cleaned CSV | Revised cleaning output | Power BI dashboard PDF |
+| --- | ---: | ---: | ---: |
+| Job listings | 99 | 97 | 99 |
+| Distinct companies | 94 | 93 | 95 |
+| Distinct locations | 31 | 30 | 30 |
+
+**Important:** The Power BI figures are reproduced as shown in the saved dashboard PDF, not recalculated from the PBIX model. Its company and location measures have **not** been independently verified against the underlying Power BI model, and the differences should not be interpreted as confirmed errors. The revised cleaning applies additional exclusions, including an obvious test listing; its outputs are not intended to match the historical dashboard exactly.
+
 ## Interpretation and limitations
 
 - The dataset is a **snapshot of one job board**, not a representative sample of the entire global remote-job market.
@@ -59,4 +71,4 @@ The extraction step accesses a **live API** and will produce a different snapsho
 
 ## Project context
 
-This project was developed as academic coursework. The Python workflow has been reorganized for readability. The updated scripts have not yet been execution-tested.
+This project was developed as academic coursework. The Python workflow has been reorganized for readability. The revised cleaning and visualization scripts passed automated validation on the archived raw dataset. Live API extraction has not been tested by this workflow.
