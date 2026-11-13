@@ -11,6 +11,12 @@ An academic project exploring remote-job listings, reported locations, employers
 3. **Analyze:** Summarize employers, locations, listing tags, tag counts, and posting dates.
 4. **Visualize:** Generate charts with `matplotlib` and examine the original Power BI report.
 
+## Power BI dashboard
+
+The original interactive Power BI report is available as [`scraper.pbix`](powerbi/scraper.pbix). For a quick view without Power BI Desktop, open the [dashboard PDF preview](powerbi/Scraper%20Power%20BI%20Dashboard.pdf).
+
+> A dashboard screenshot will be embedded here after a PNG image is added to `images/`.
+
 ## Repository structure
 
 | Path | Contents |
@@ -20,7 +26,7 @@ An academic project exploring remote-job listings, reported locations, employers
 | [`src/visualize_jobs.py`](src/visualize_jobs.py) | Charts and skill-tag frequency export |
 | `data/` | Original raw and cleaned CSV snapshots, plus skill-tag frequency table |
 | `powerbi/` | Original `.pbix` dashboard and PDF preview — **to be added** |
-| `docs/` | Original academic report and presentation — **to be added** |
+| `docs/` | Academic report, presentation and supporting parts — **to be added** |
 | `images/charts/` | Generated plots after running the visualization script |
 
 ## Reproduce the Python workflow
