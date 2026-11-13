@@ -32,6 +32,6 @@ def extract(output: Path) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, default=Path("data/jobs_data.csv"))
+    parser.add_argument("--output", type=Path, default=Path("outputs/jobs_data.csv"))
     args = parser.parse_args()
     extract(args.output)

@@ -33,7 +33,7 @@ def clean(source: Path, output: Path) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", type=Path, default=Path("data/jobs_data.csv"))
-    parser.add_argument("--output", type=Path, default=Path("data/jobs_final_cleaned.csv"))
+    parser.add_argument("--input", type=Path, default=Path("outputs/jobs_data.csv"))
+    parser.add_argument("--output", type=Path, default=Path("outputs/jobs_final_cleaned.csv"))
     args = parser.parse_args()
     clean(args.input, args.output)

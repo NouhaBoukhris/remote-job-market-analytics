@@ -49,8 +49,8 @@ def visualize(source: Path, charts: Path, skills_output: Path) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", type=Path, default=Path("data/jobs_final_cleaned.csv"))
-    parser.add_argument("--charts", type=Path, default=Path("images/charts"))
-    parser.add_argument("--skills-output", type=Path, default=Path("data/skills_frequency.csv"))
+    parser.add_argument("--input", type=Path, default=Path("outputs/jobs_final_cleaned.csv"))
+    parser.add_argument("--charts", type=Path, default=Path("outputs/charts"))
+    parser.add_argument("--skills-output", type=Path, default=Path("outputs/skills_frequency.csv"))
     args = parser.parse_args()
     visualize(args.input, args.charts, args.skills_output)
