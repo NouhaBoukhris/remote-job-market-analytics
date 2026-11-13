@@ -4,7 +4,7 @@
 
 An academic project exploring remote-job listings, reported locations, employers, and recurring skill tags. Data was obtained from the [Remote OK API](https://remoteok.com/api), rather than by scraping website HTML.
 
-> **Portfolio status:** Reorganized Python scripts are available. Original datasets, Power BI dashboard, report and presentation are still to be migrated from the [original coursework repository](https://github.com/nouhaBks/Website-Scarper). The revised scripts have not yet been executed against the migrated data.
+> **Portfolio status:** Reorganized Python scripts are available. Original datasets are imported; the Power BI dashboard, report and presentation are still to be migrated from the [original coursework repository](https://github.com/nouhaBks/Website-Scarper). The revised scripts have not yet been executed against the imported data.
 
 ## Project workflow
 
@@ -20,7 +20,7 @@ An academic project exploring remote-job listings, reported locations, employers
 | [`src/extract_remoteok.py`](src/extract_remoteok.py) | API-based data collection |
 | [`src/clean_jobs.py`](src/clean_jobs.py) | Cleaning and quality checks |
 | [`src/visualize_jobs.py`](src/visualize_jobs.py) | Charts and skill-tag frequency export |
-| `data/` | Raw and cleaned CSV snapshots — **to be added** |
+| `data/` | Original raw and cleaned CSV snapshots, plus skill-tag frequency table |
 | `powerbi/` | Original `.pbix` dashboard and PDF preview — **to be added** |
 | `docs/` | Original academic report and presentation — **to be added** |
 | `images/charts/` | Generated plots after running the visualization script |
