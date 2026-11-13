@@ -1,0 +1,62 @@
+name: Validate analytics pipeline
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'data/**'
+      - 'requirements.txt'
+      - '.github/workflows/validate-pipeline.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Validate archived data and run processing scripts
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          raw = pd.read_csv('data/jobs_data.csv', encoding='utf-8-sig')
+          cleaned = pd.read_csv('data/jobs_final_cleaned.csv', encoding='utf-8-sig')
+          assert len(raw) > 0 and len(cleaned) > 0
+          assert {'url','title','company','skills','date_posted'}.issubset(raw.columns)
+          print('Archived raw rows:', len(raw))
+          print('Archived cleaned rows:', len(cleaned))
+          print('Archived cleaned distinct companies:', cleaned['company'].nunique())
+          print('Archived cleaned distinct locations:', cleaned['location'].nunique())
+          PY
+          python src/clean_jobs.py --input data/jobs_data.csv --output outputs/jobs_final_cleaned.csv
+          python src/visualize_jobs.py --input outputs/jobs_final_cleaned.csv --charts outputs/charts --skills-output outputs/skills_frequency.csv
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd
+          cleaned = pd.read_csv('outputs/jobs_final_cleaned.csv')
+          archived = pd.read_csv('data/jobs_final_cleaned.csv')
+          assert not cleaned.empty
+          assert cleaned['url'].is_unique
+          assert cleaned[['title','company']].notna().all().all()
+          assert (cleaned['number_of_skills'] >= 0).all()
+          for name in ('top_companies','top_locations','top_skills','skills_distribution','jobs_over_time'):
+              assert (Path('outputs/charts') / (name+'.png')).is_file(), name
+          assert Path('outputs/skills_frequency.csv').is_file()
+          print('Revised cleaned rows:',len(cleaned))
+          print('Archived cleaned rows:',len(archived))
+          print('Revised distinct companies:',cleaned['company'].nunique())
+          print('Revised distinct locations:',cleaned['location'].nunique())
+          print('Revised top tags:')
+          print(pd.read_csv('outputs/skills_frequency.csv').head(5).to_string(index=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: analytics-validation-outputs
+          path: outputs/
+          if-no-files-found: ignore
