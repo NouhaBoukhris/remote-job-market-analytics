@@ -46,7 +46,7 @@ The extraction step accesses a **live API** and will produce a different snapsho
 
 ## Validation and dashboard reconciliation
 
-The [automated pipeline validation](.github/workflows/validate-pipeline.yml) successfully ran the revised cleaning and visualization scripts on the archived raw CSV and verified that charts and a skills-frequency table were generated.
+An automated pipeline validation successfully ran the revised cleaning and visualization scripts on the archived raw CSV and verified that charts and a skills-frequency table were generated.
 
 | Metric | Archived cleaned CSV | Revised cleaning output | Power BI dashboard PDF |
 | --- | ---: | ---: | ---: |
