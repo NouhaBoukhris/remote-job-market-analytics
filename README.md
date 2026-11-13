@@ -15,7 +15,9 @@ An academic project exploring remote-job listings, reported locations, employers
 
 The original interactive Power BI report is available as [`scraper.pbix`](powerbi/scraper.pbix). For a quick view without Power BI Desktop, open the [dashboard PDF preview](powerbi/Scraper%20Power%20BI%20Dashboard.pdf).
 
-> A dashboard screenshot will be embedded here after a PNG image is added to `images/`.
+![Remote Job Market Analytics — Power BI dashboard](images/remote_job_dashboard.png)
+
+The preview is generated from the archived dashboard PDF.
 
 ## Repository structure
 
