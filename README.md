@@ -26,7 +26,7 @@ The original interactive Power BI report is available as [`scraper.pbix`](powerb
 | [`src/visualize_jobs.py`](src/visualize_jobs.py) | Charts and skill-tag frequency export |
 | `data/` | Original raw and cleaned CSV snapshots, plus skill-tag frequency table |
 | `powerbi/` | Original `.pbix` dashboard and PDF preview — **to be added** |
-| `docs/` | Academic report, presentation and supporting parts — **to be added** |
+| `docs/` | Final academic report and presentation |
 | `images/charts/` | Generated plots after running the visualization script |
 
 ## Reproduce the Python workflow
@@ -49,6 +49,11 @@ The extraction step accesses a **live API** and will produce a different snapsho
 - The original source's salary field is not reliably standardized, so the revised cleaning script does not calculate a salary midpoint.
 - Some original listing text shows encoding artifacts. Those values require source verification rather than speculative corrections.
 - This repository documents an **educational analytics workflow**, not a live labor-market monitoring service.
+
+## Documentation
+
+- [Final project report](docs/Final_Report.pdf)
+- [Final presentation](docs/Final_Presentation.pdf)
 
 ## Project context
 
