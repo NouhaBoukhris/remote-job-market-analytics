@@ -29,7 +29,7 @@ The preview is generated from the dashboard PDF.
 | `data/` | Archived raw and cleaned CSV snapshots, plus skill-tag frequency table |
 | `powerbi/` | Power BI `.pbix` dashboard and PDF preview |
 | `docs/` | Final academic report and presentation |
-| `images/charts/` | Generated plots after running the visualization script |
+| [`images/remote_job_dashboard.png`](images/remote_job_dashboard.png) | Archived dashboard preview; new charts are generated locally under ignored `outputs/charts/` |
 
 ## Reproduce the Python workflow
 
@@ -45,6 +45,8 @@ python src/visualize_jobs.py --input outputs/jobs_final_cleaned.csv --charts out
 The extraction step accesses a **live API** and will produce a different snapshot over time. The commands above write to the ignored `outputs/` directory, leaving the archived academic datasets untouched. To analyze the archived snapshot instead, run `python src/visualize_jobs.py --input data/jobs_final_cleaned.csv --charts outputs/archived_charts --skills-output outputs/archived_skills_frequency.csv`.
 
 ## Validation and dashboard reconciliation
+
+**These three columns describe different processing states and are not directly interchangeable.** The archived cleaned CSV is the historical project output, the revised cleaning output applies updated exclusions, and the dashboard PDF displays saved Power BI measures.
 
 An automated pipeline validation successfully ran the revised cleaning and visualization scripts on the archived raw CSV and verified that charts and a skills-frequency table were generated.
 
